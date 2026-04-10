@@ -1,0 +1,655 @@
+body {
+  background-color: #0e0e0e;
+  color: #e6e6e6;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.livro-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #151515;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  border: 2px solid #2a2a2a;
+}
+
+.cabecalho-livro {
+  text-align: center;
+  border-bottom: 2px solid #444;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  text-shadow: 0 0 10px #444;
+}
+
+.cabecalho-livro h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+}
+
+.cabecalho-livro h1:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #444;
+  transition: 0.3s;
+}
+
+.cabecalho-livro p {
+  font-size: 1rem;
+  color: #aaa;
+  font-style: italic;
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
+}
+
+.indice-regras {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: inset 0 0 12px #444;
+}
+
+.indice-regras h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.indice-regras ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.indice-regras li {
+  margin: 10px 0;
+}
+
+.indice-regras a {
+  text-decoration: none;
+  color: #ddd;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.indice-regras a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.conteudo-livro section {
+  margin-bottom: 50px;
+}
+
+.conteudo-livro h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 5px;
+}
+
+.conteudo-livro p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+.back-to-home {
+  text-align: center;
+  margin: 3rem 0 1rem 0;
+}
+
+.btn {
+  background: #ffffff;
+  color: #000000 !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #e0e0e0;
+}
+
+/* Botão fixo */
+#btn-voltar-topo-fixo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  padding: 12px 14px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  opacity: 0.5;
+  z-index: 1000;
+  transition: opacity 0.3s;
+}
+#btn-voltar-topo-fixo:hover {
+  opacity: 1;
+}
+
+/* Estilos para a introdução sombria */
+.book-intro {
+  max-width: 800px;
+  margin: 3rem auto 4rem auto;
+  color: #ff3c3c;
+  font-family: 'Georgia', serif;
+  line-height: 1.7;
+  font-size: 1.15rem;
+}
+
+.book-intro p {
+  margin-bottom: 1.6rem;
+  text-align: justify;
+}
+
+/* Estilizações especiais */
+.book-intro .highlight {
+  color: #ff3c3c;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.book-intro .bold {
+  font-weight: bold;
+}
+
+.book-intro .italic {
+  font-style: italic;
+}
+
+.book-intro .underline {
+  text-decoration: underline;
+}
+
+.book-intro .uppercase {
+  text-transform: uppercase;
+}
+
+.book-intro .spaced {
+  letter-spacing: 1.5px;
+}
+
+.book-intro .red-shadow {
+  text-shadow: 1px 1px 2px #ff0000;
+}
+
+.book-intro .red-glow {
+  color: #ff3c3c;
+  text-shadow: 0 0 8px #ff3c3c;
+}
+
+.book-intro .large {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.book-intro .cursed {
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+
+.book-intro .ending {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 3rem;
+}
+
+/* Estilo para a introdução com título estilizado */
+.ordo-intro {
+  max-width: 850px;
+  margin: 4rem auto;
+  padding: 2rem;
+  font-family: 'Georgia', serif;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #e6ddd0;
+  line-height: 1.8;
+  font-size: 1.15rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #00000077;
+}
+
+/* Título com estilo */
+.ordo-intro h2 {
+  font-size: 2.5rem;
+  color: #fafafa;
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: 2px;
+  position: relative;
+  margin-bottom: 1.5rem;
+  font-family: 'Impact', 'Georgia', serif;
+}
+
+.ordo-intro h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 140px;
+  height: 5px;
+  background-color: #a30000;
+  transform: rotate(-2deg);
+}
+
+/* Destaques */
+.ordo-intro .red {
+  color: #ff4c4c;
+  font-weight: bold;
+}
+
+.ordo-intro .italic {
+  font-style: italic;
+}
+
+.ordo-intro .bold {
+  font-weight: bold;
+}
+
+.ordo-intro .indent {
+  margin-top: 1.6rem;
+}
+
+.filtro-origens {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.filtro-origens label {
+  font-weight: bold;
+  color: #ddd;
+}
+
+#busca-origens {
+  padding: 8px 12px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #111;
+  color: #fff;
+}
+
+.origem-box {
+  margin-bottom: 12px;
+  padding: 10px;
+  border-left: 3px solid #666;
+  background-color: #1a1a1a;
+  border-radius: 4px;
+}
+
+.ordo-origens-container {
+  max-width: 900px;
+  margin: 4rem auto;
+  font-family: sans-serif;
+  background: #111;
+  padding: 2rem;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: #f0f0f0;
+}
+
+.ordo-origens-container summary,
+.master-origin-toggle summary {
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
+.origin-description {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #bbb;
+}
+
+details.origin-entry {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed #444;
+  padding-bottom: 1rem;
+}
+
+.origin-entry summary {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.origin-text {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.pericias {
+  margin-top: 0.5rem;
+  color: #ff4b4b;
+  font-weight: bold;
+}
+
+.dica-ouro {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #fbc531;
+}
+
+.trilhas-section {
+  background-color: #0b0b0b;
+  color: #fff;
+  padding: 2rem;
+}
+
+.trilha-busca {
+  padding: 10px;
+  width: 100%;
+  margin: 1rem 0 2rem;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.trilha-categoria {
+  margin-bottom: 2rem;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background: #111;
+  padding: 1rem;
+}
+
+.categoria-nome {
+  font-size: 1.3rem;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.trilha-box {
+  border: 1px solid #333;
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+}
+
+.trilha-nome {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.trilha-desc {
+  font-style: italic;
+  margin-bottom: 1.2rem;
+  color: #ddd;
+}
+
+.nex-bloco {
+  background-color: #222;
+  padding: 1rem;
+  border-left: 4px solid #fff;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.nex-bloco h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.nex-bloco p {
+  margin: 0.5rem 0 0;
+  color: #ccc;
+}
+
+.rituais-section {
+  background-color: #0b0b0b;
+  color: #fff;
+  padding: 2rem;
+}
+
+.ritual-busca {
+  padding: 10px;
+  width: 100%;
+  margin: 1rem 0 2rem;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.elemento-box {
+  border: 1px solid #444;
+  background-color: #111;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+.elemento-box summary {
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.elemento-box.sangue summary {
+  color: #ff4b4b;
+}
+
+.elemento-box.morte summary {
+  color: #aaa;
+}
+
+.elemento-box.conhecimento summary {
+  color: #f2c744;
+}
+
+.elemento-box.energia summary {
+  color: #a94bff;
+}
+
+.elemento-box.medo summary {
+  color: #f0f0f0;
+}
+
+.circulo-box {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-top: 1px dashed #333;
+  padding-top: 1rem;
+}
+
+.ritual-box {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+  border-left: 4px solid #444;
+}
+
+.ritual-nome {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff4b4b;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ritual-detalhes p {
+  margin: 0.2rem 0;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.ritual-desc {
+  margin: 0.5rem 0;
+  color: #ddd;
+}
+
+.ritual-evolucao li {
+  font-size: 0.9rem;
+  color: #f5f5f5;
+  margin-left: 1.5rem;
+  list-style: disc;
+}
+
+.tag {
+  background: #444;
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  margin-left: 0.5rem;
+}
+
+.armas-section {
+  background-color: #0b0b0b;
+  color: #fff;
+  padding: 2rem;
+}
+
+.arma-busca {
+  margin: 1rem 0;
+  padding: 10px;
+  width: 100%;
+  background-color: #111;
+  border: 1px solid #444;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.tabela-armas {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #111;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.tabela-armas th,
+.tabela-armas td {
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: left;
+}
+
+.linha-arma {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.linha-arma:hover {
+  background-color: #222;
+}
+
+.descricao-arma {
+  display: none;
+  background-color: #1a1a1a;
+  border-left: 4px solid #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.armas-section summary {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.armas-section summary:hover {
+  color: #9c9c9c;
+}
+
+.titulo-armas {
+  font-family: inherit;
+}
+
+.itens-section {
+  padding: 2rem;
+  background-color: #0b0b0b;
+  color: #fff;
+}
+
+.item-busca {
+  padding: 10px;
+  width: 100%;
+  margin: 1rem 0 2rem;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.item-elemento-box {
+  margin-bottom: 1.5rem;
+  border: 1px solid #333;
+  background-color: #111;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+}
+
+.item-elemento-box summary {
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+}
+
+.item-box {
+  margin: 0.5rem 0 0.5rem 1rem;
+  border-left: 3px solid #ffffff;
+  padding-left: 1rem;
+}
+
+.item-nome {
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.item-desc {
+  margin-top: 0.3rem;
+  color: #cccccc;
+}
+
+.item-categoria {
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.item-categoria.sangue { background-color: #8b0000; color: #ffffff; }
+.item-categoria.morte { background-color: #000000; color: #ffffff; }
+.item-categoria.conhecimento { background-color: #bfa444; color: #000000; }
+.item-categoria.energia { background-color: #4b0082; color: #ffffff; }
+.item-categoria.medo { background-color: #ffffff; color: #000000; }

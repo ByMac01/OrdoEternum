@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ordo Eternum</title>
+    <link
+      rel="icon"
+      href="assets\Ícone OE.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Barra de Navegação -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="#home">
+            <img
+              src="assets\Logo OE.png"
+              alt="Ordo Eternum"
+            />
+          </a>
+        </div>
+        <!-- Botão do menu hamburguer para mobile -->
+        <input type="checkbox" id="toggle-menu" />
+        <label for="toggle-menu" class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <!-- Links de navegação -->
+        <ul class="nav-links">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#temporadas">Temporadas</a></li>
+          <li><a href="#personagens">Personagens</a></li>
+          <li>
+            <a href="#regras" class="highlighted-link">Livro de Regras</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="fog"></div>
+      <div class="fog-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-logo">
+          <img
+            src="assets\Logo OE.png"
+            alt="Ordo Eternum"
+          />
+        </div>
+        <p>
+          Bem-vindo a Ordo Eternum!<br /><br />
+          Ordo Eternum é um universo criado pela equipe Inversão e é baseado em
+          Ordem Paranormal RPG, somado com suplementos. Com histórias
+          inteiramente novas, personagens únicos e muito mais.<br /><br />
+        </p>
+        <a href="#temporadas" class="btn">Saiba Mais</a>
+      </div>
+    </section>
+    <!-- Dentro da div .hero-content, após o parágrafo e o botão "Saiba Mais" -->
+    <div class="livros-box">
+      <h2>Livros</h2>
+      <a
+        href="assets\Ordo Eternum Antes da Máscara.pdf"
+        download
+      >
+        <img
+          src="assets\Capa OE Antes da Máscara.png"
+          alt="Capa do Livro"
+          class="livro-img"
+        />
+      </a>
+    </div>
+
+    <!-- Seções -->
+    <section id="temporadas" class="section">
+      <h2>Temporadas</h2>
+      <p>Conheça as histórias e aventuras de cada temporada do RPG.</p>
+      <div class="season-cards">
+        <a href="tpi.html" class="season-card">
+          <div
+            class="season-image"
+            style="
+              background-image: url('https://media.discordapp.net/attachments/840545312035700738/1491948250411045091/2.png?ex=69d98c95&is=69d83b15&hm=8f0c19f8cba805334538721796a87271939988e1e6e09a30c319e55afb305411&=&format=webp&quality=lossless&width=1707&height=960');
+            "
+          >
+            <div class="season-overlay">
+              <h3>Temporada 1</h3>
+              <p>Todos Pelo Ideal</p>
+            </div>
+          </div>
+        </a>
+        <a href="sdp.html" class="season-card">
+          <div
+            class="season-image"
+            style="
+              background-image: url('https://media.discordapp.net/attachments/840545312035700738/1491949336286986390/Ordo_Eternum_Sombras_do_Passado.png?ex=69d98d98&is=69d83c18&hm=e4a0f22167f98dc478d113ef320d1f6c27aa2e7dbb8b12cc1ce7e07f0dcec1b5&=&format=webp&quality=lossless&width=1707&height=960');
+            "
+          >
+            <div class="season-overlay">
+              <h3>Temporada 2</h3>
+              <p>Sombras do Passado</p>
+            </div>
+          </div>
+        </a>
+        <a class="season-card" onclick="mostrarAviso()">
+          <div
+            class="season-image"
+            style="
+              background-image: url('https://media.discordapp.net/attachments/840545312035700738/1491949558815784960/Legado_Escarlate_-_Introducao.png?ex=69d98dcd&is=69d83c4d&hm=7c8569cb8e93606db3d4ff150764d93084a9f2b6a89184fa4c198e1f6dc41521&=&format=webp&quality=lossless');
+            "
+           onclick="mostrarAviso()">
+            <div class="season-overlay" onclick="mostrarAviso()">
+              <h3>Temporada 3</h3>
+              <p>Legado Escarlate</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+<!-- Aviso -->
+<div id="aviso" class="aviso">Temporada ainda em andamento...</div>
+    
+    <!-- Seção de Personagens -->
+    <section id="personagens" class="section">
+      <h2>Personagens</h2>
+      <div class="season-buttons">
+        <button class="season-btn" data-season="TPI">TPI</button>
+        <button class="season-btn" data-season="SDP">SDP</button>
+        <button class="season-btn" data-season="LE">LE</button>
+      </div>
+      <div class="personagens-grid"></div>
+      <a href="personagens.html" class="btn">Ver todos</a>
+    </section>
+
+    <!-- Lore -->
+    <section id="regras" class="section livro-de-regras">
+      <div class="regras-content">
+        <h2>Livro de Regras</h2>
+        <div class="mockup-livro-container">
+      <img
+        src="https://cdn.glitch.global/dea70241-0383-42e2-8503-bf393bd23b59/livro.png?v=1746334138864"
+        alt="Mockup do Livro de Regras Ordo Eternum"
+        class="mockup-livro"
+      />
+    </div>
+        <p>
+          Descubra todas as classes, origens, armas, itens, rituais e muito
+          mais!
+        </p>
+        <a href="regras.html" class="btn btn-destaque">Ver Regras</a>
+      </div>
+    </section>
+
+    <section id="links-adicionais" class="section">
+      <h2>Outros Conteúdos</h2>
+      <div class="links-grid">
+        <a href="organizacoes.html" class="link-card">
+          <div class="link-icon">
+            <i class="fas fa-university"></i>
+          </div>
+          <h3>Organizações</h3>
+        </a>
+        <a href="locais.html" class="link-card">
+          <div class="link-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3>Locais</h3>
+        </a>
+        <a href="bestias.html" class="link-card">
+          <div class="link-icon">
+            <i class="fas fa-dragon"></i>
+          </div>
+          <h3>Bestiário</h3>
+        </a>
+        <a href="documentos.html" class="link-card">
+          <div class="link-icon">
+            <i class="fas fa-scroll"></i>
+          </div>
+          <h3>Documentos</h3>
+        </a>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2024 - 2025 Ordo Eternum. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

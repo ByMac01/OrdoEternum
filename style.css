@@ -1,0 +1,1282 @@
+/* Geral */
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.section#personagens {
+  padding: 1rem;
+  background-color: #000000;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+}
+
+.season-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.season-btn {
+  background-color: #222222;
+  color: #ffffff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.season-btn:hover {
+  background-color: #444444;
+  transform: scale(1.05);
+}
+
+.personagem-card {
+  background-color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid #333333;
+  cursor: pointer;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Impede espaços desnecessários */
+  min-height: 100px; /* Mantém compacto */
+}
+
+.personagem-card img {
+  width: 100%;
+  height: 80px;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-bottom: 0.2rem; /* Reduzi o espaçamento abaixo da imagem */
+}
+
+.personagem-card p {
+  margin: 0 !important; /* Remove qualquer margem oculta */
+  padding: 0 !important; /* Garante que não há padding extra */
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #ffffff;
+  white-space: normal;
+  text-align: center;
+  line-height: 1rem;
+  flex-grow: 0; /* Impede que o texto force o card a crescer */
+}
+
+.personagens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  justify-items: center;
+}
+
+.personagem-card:hover {
+  transform: scale(1.05);
+  background-color: #2a2a2a;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #000000;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  position: relative;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.navbar .logo img {
+  width: 100%; /* Ajuste para o tamanho desejado */
+  height: auto; /* Mantém a proporção original */
+  transition: transform 0.3s ease;
+}
+
+.navbar .logo img:hover {
+  transform: scale(1.1);
+}
+
+.nav-links .highlighted-link {
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.nav-links .highlighted-link:hover {
+  background-color: #ffffffff;
+  color: #333333;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  background: url("https://cdn.glitch.global/dea70241-0383-42e2-8503-bf393bd23b59/banner.png?v=1734317973530")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+  /* Remover qualquer margin que possa estar causando o espaço extra */
+  margin: 0;
+}
+
+/* Ajustar o divisor */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -1px; /* Ajustado de 0 para -1px para garantir que não haja gap */
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.3) 80%,
+    transparent
+  );
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.3);
+  animation: glow 3s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+#temporadas {
+  padding-top: 2rem; /* Reduzido do valor anterior */
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: none; /* Permite interação através da névoa */
+}
+
+.fog-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%; /* Duplicar a largura para efeito contínuo */
+  height: 100%;
+  background: url("https://cdn.glitch.global/dea70241-0383-42e2-8503-bf393bd23b59/fog.png?v=1734321000044")
+    no-repeat center center/cover; /* Use o caminho correto para sua imagem de neblina */
+  opacity: 0.6;
+  animation: fog 60s linear infinite;
+  pointer-events: none; /* Permite interação através da névoa */
+}
+
+@keyframes fog {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(
+      -50%
+    ); /* Movimentar metade da largura para efeito contínuo */
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1; /* Garante que a névoa não cubra o conteúdo do herói */
+}
+
+.hero-logo img {
+  width: 500px;
+  transition: transform 0.3s ease;
+}
+
+.hero-logo img:hover {
+  transform: scale(1.1);
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.btn {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Seções */
+.section {
+  padding: 6rem 2rem; /* Aumentei o padding vertical */
+  text-align: center;
+  background-color: rgba(
+    26,
+    26,
+    26,
+    0.95
+  ); /* Ajustei para ser levemente transparente */
+  position: relative;
+  overflow: hidden; /* Para conter efeitos visuais */
+}
+
+.section:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 80%,
+    transparent
+  );
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.section:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.97);
+}
+
+.section h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem; /* Reduzido de 1rem para 0.5rem */
+}
+
+.section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+}
+
+.section p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  padding: 0 2rem;
+}
+
+.card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  padding: 2.5rem;
+  border-radius: 15px;
+  width: 250px;
+  font-weight: 500;
+  color: #ffffff;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.08)
+  );
+  box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.livro-de-regras {
+  background-image: url("https://cdn.glitch.global/dea70241-0383-42e2-8503-bf393bd23b59/banner.png?v=1734317973530");
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+}
+
+.livro-de-regras::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Sobreposição escura para melhorar a legibilidade */
+  z-index: 1;
+}
+
+.livro-de-regras .regras-content {
+  position: relative;
+  z-index: 2;
+}
+
+.livro-de-regras h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.livro-de-regras p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.mockup-livro-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.mockup-livro {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.mockup-livro:hover {
+  transform: scale(1.05);
+}
+
+.btn-destaque {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-destaque:hover {
+  background-color: rgba(0, 0, 0, 0.97);
+}
+
+#links-adicionais {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.97);
+}
+
+#links-adicionais h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.links-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.link-card {
+  background-color: rgba(0, 0, 0, 0.97);
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  width: 180px;
+  padding: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: transform 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.link-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #ffffff;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.link-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.link-card h3 {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .links-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .link-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: rgba(0, 0, 0, 0.98);
+  padding: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* style.css - Adições */
+/* Estilos Gerais para Regras */
+.rules-header {
+  background: linear-gradient(to bottom, #000, rgba(0, 0, 0, 0.95));
+  padding: 3rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rules-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.rules-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 1.2rem;
+  background: rgba(26, 26, 26, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rules-nav a {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.rules-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Seções */
+.rule-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.icon-lg {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.content-box {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+/* Tabelas */
+.origins-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.origins-table th,
+.origins-table td {
+  padding: 1rem;
+  border: 1px solid #333;
+  text-align: left;
+}
+
+.origins-table th {
+  background: #2a2a2a;
+}
+
+/* Cards de Classe */
+.class-card {
+  background: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.class-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .two-column {
+    flex-direction: column;
+  }
+
+  .rules-nav ul {
+    flex-direction: column;
+  }
+  .personagens-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+/* Animações e Efeitos */
+[data-aos] {
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+[data-aos="fade-up"] {
+  transform: translateY(20px);
+}
+
+[data-aos="zoom-in"] {
+  transform: scale(0.9);
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Cards de Classes */
+.class-card {
+  background: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.class-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Tabela de Origens */
+.origins-table tbody tr {
+  transition: background 0.3s;
+}
+
+.origins-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Botões e Links */
+.btn {
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para a Página de Resumos */
+.summaries-header {
+  background: #000;
+  padding: 2rem;
+  text-align: center;
+}
+
+.summaries-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: #1a1a1a;
+}
+
+.summaries-nav a {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.summaries-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.summary-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+.summary-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.quote {
+  font-style: italic;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.section-img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin: 1rem auto;
+  display: block;
+}
+
+.character-list {
+  list-style: none;
+  padding: 0;
+}
+
+.character-list li {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+}
+
+.timeline {
+  margin-top: 2rem;
+}
+
+.timeline ol {
+  list-style: none;
+  padding: 0;
+}
+
+.timeline li {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline li::before {
+  content: "•";
+  position: absolute;
+  left: 1rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* Estilos para Resumos Detalhados */
+.full-summary {
+  line-height: 1.6;
+  margin: 2rem 0;
+}
+
+.highlight-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-left: 4px solid #e74c3c;
+  margin: 2rem 0;
+  border-radius: 5px;
+}
+
+.encounter-list li {
+  padding: 1rem;
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.timeline {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.timeline-item {
+  display: flex;
+  margin: 2rem 0;
+}
+
+.timeline-marker {
+  width: 40px;
+  height: 40px;
+  background: #2c3e50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.timeline-content {
+  flex: 1;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 5px;
+}
+
+/* Estilos para os Cards de Temporada */
+.season-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.season-card {
+  width: 300px;
+  height: 180px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.season-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.season-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.season-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding: 1rem;
+  color: white;
+  text-align: left;
+}
+
+.season-overlay h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.season-overlay p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.coming-soon {
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .season-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Estilos para a caixa de Livros */
+.livros-box {
+  position: fixed;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1000;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  transition: width 0.3s ease, height 0.3s ease, padding 0.3s ease;
+  border: 1px solid white; /* Adicione esta linha para a borda branca */
+}
+
+.livros-box:hover {
+  width: 200px; /* Tamanho expandido */
+  height: auto;
+  padding: 1.5rem; /* Aumenta o padding ao expandir */
+}
+
+.livros-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  display: none; /* Esconde o título inicialmente */
+}
+
+.livros-box:hover h2 {
+  display: block; /* Mostra o título ao passar o mouse */
+}
+
+.livro-img {
+  width: 100%; /* Ajusta a largura da imagem */
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.livro-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 20px;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .season-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+  body {
+    font-size: 14px;
+  }
+  .livros-box {
+    opacity: 0.7; /* Ajuste o valor conforme desejado (0.0 a 1.0) */
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+  .season-card {
+    flex: 1 1 100%;
+  }
+  .personagens-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+/* Estilos do menu em dispositivos móveis */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+  }
+
+  .nav-links li {
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  #menu-toggle:checked + .menu-icon + .nav-links {
+    display: flex;
+  }
+  .hero-content {
+    padding: 80px 15px;
+  }
+
+  .hero-logo img {
+    width: 250px;
+  }
+
+  .hero-content p {
+    font-size: 1.3rem;
+  }
+
+  .hero-content .btn {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Oculta o checkbox */
+#menu-toggle {
+  display: none;
+}
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos gerais da navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #111;
+  padding: 10px 20px;
+}
+
+.navbar .logo img {
+  height: 50px;
+}
+
+/* Estilos dos links de navegação */
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #ccc;
+}
+
+/* Estilos do menu hamburguer */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px;
+  transition: 0.3s;
+}
+
+/* Ocultar o checkbox */
+#toggle-menu {
+  display: none;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  /* Exibir o menu hamburguer */
+  .menu-icon {
+    display: flex;
+  }
+
+  /* Esconder os links de navegação quando o menu está fechado */
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    background-color: #111;
+    width: 100%;
+    height: calc(100% - 60px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.3s;
+  }
+
+  .nav-links li {
+    margin: 20px 0;
+  }
+
+  /* Mostrar o menu quando o checkbox está marcado */
+  #toggle-menu:checked ~ .nav-links {
+    left: 0;
+  }
+
+  /* Animação do ícone do menu hamburguer quando ativo */
+  #toggle-menu:checked + .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  #toggle-menu:checked + .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #toggle-menu:checked + .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+/* Altura fixa para a navbar */
+.navbar {
+  height: 60px;
+}
+
+/* Fundo semi-transparente para o menu mobile */
+.nav-links {
+  background-color: rgba(17, 17, 17, 0.95);
+}
+
+/* Transição suave para o menu */
+.nav-links,
+.menu-icon span {
+  transition: all 0.3s ease;
+}
+
+/* Aumentar a área clicável dos links */
+.nav-links a {
+  padding: 10px 20px;
+  display: block;
+  text-align: center;
+}
+
+/* Subtítulo da Temporada */
+.season-subtitle {
+  font-size: 1.2em;
+  color: #888;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Imagem de Takeda Hiroshi */
+.hiroshi-img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 15px;
+  float: left;
+}
+
+/* Índice */
+.index-section {
+  margin-bottom: 30px;
+}
+
+.index-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.index-section ul li {
+  margin: 10px 0;
+}
+
+.index-section ul li a {
+  text-decoration: none;
+  color: #2ae5f6;
+}
+
+.index-section ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Box de Informações da Campanha */
+.info-box {
+  background-color: #222;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.info-box h4 {
+  margin-bottom: 15px;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-item {
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-item h5 {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.info-item p {
+  margin: 5px 0;
+}
+
+.info-item a {
+  color: #2ae5f6;
+  text-decoration: none;
+}
+
+.info-item a:hover {
+  text-decoration: underline;
+}
+
+.aviso {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.85); /* fundo preto translúcido */
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  z-index: 1000;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.aviso.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.back-to-home {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.btn {
+  background: #ffffff;
+  color: #000000 !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #e0e0e0;
+}
